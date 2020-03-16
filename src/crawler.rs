@@ -22,10 +22,11 @@ pub async fn get_wiki_body(url: &str) -> reqwest::Result<String> {
     Ok(body)
 }
 
-pub fn run_crawler(body: String, ignore_words: &Vec<String>, is_ignore_reverse: bool) {
+pub fn run_crawler(body: String, ignore_words: &Vec<String>, is_ignore_reverse: bool) -> Result<Vec<String>, Box<dyn std::error::Error>> {
     let track: Result<KartRiderTrack, Error> = KartRiderTrack::from_html(&body);
 
     let mut count = 0;
+    let mut data: Vec<String> = vec![];
 
     match track {
         Ok(track) => {
@@ -42,6 +43,8 @@ pub fn run_crawler(body: String, ignore_words: &Vec<String>, is_ignore_reverse: 
 
                 println!("Map #{}: {}", count, item);
 
+                data.push(item);
+
                 count += 1;
             });
         }
@@ -49,4 +52,6 @@ pub fn run_crawler(body: String, ignore_words: &Vec<String>, is_ignore_reverse: 
             println!("crawling error: {}", e);
         }
     }
+
+    Ok(data)
 }
