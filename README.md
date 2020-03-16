@@ -14,7 +14,7 @@
     "words": [
       "제외 단어"
     ],
-    "reverse": [리버스] 단어 제거 여부 (true or false)
+    "reverse": "[리버스] 단어 제거 여부 (true or false)"
   }
 }
 ```
