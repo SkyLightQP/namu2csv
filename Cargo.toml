@@ -13,3 +13,4 @@ unhtml = "0.7.5"
 unhtml_derive = "0.7.5"
 serde = { version = "1.0.104", features = ["derive"] }
 serde_json = "1.0"
+csv = "1.1.3"
