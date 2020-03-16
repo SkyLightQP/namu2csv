@@ -1,0 +1,12 @@
+{
+  "urls": [],
+  "ignore": {
+    "words": [
+      "개요",
+      "소개",
+      "설명",
+      "BGM"
+    ],
+    "reverse": true
+  }
+}
